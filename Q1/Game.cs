@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Q1
 {
@@ -27,11 +28,28 @@ namespace Q1
             player5.IncreaseScore(5);
 
             Display(teamPlayers);
+
+            Console.WriteLine("\n what player would you like to add scores too?");
+            int PlayerNum = int.Parse(Console.ReadLine());
+
+            while (PlayerNum != 0)
+            {
+                Player selectedPlayer = teamPlayers.ElementAt(PlayerNum-1);
+
+                selectedPlayer.IncreaseScore(1);
+
+                Display(teamPlayers);
+
+                Console.WriteLine("\n what player would you like to add scores too?");
+                PlayerNum = int.Parse(Console.ReadLine());
+
+            }
+
         }
 
          private static void Display(List<Player> players)
         {
-           Console.WriteLine("{0,15}{0,15}{0,15}{0,15}{0,15}", "Player1", "Player2", "Player3", "Player4", "Player5");
+           Console.WriteLine("{0,15}{1,15}{2,15}{3,15}{4,15}", "player 1", "player 2", "player 3", "player 4", "player 5");
 
            foreach (Player player in players)
            {
