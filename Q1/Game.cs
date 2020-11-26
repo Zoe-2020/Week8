@@ -28,6 +28,8 @@ namespace Q1
             player5.IncreaseScore(5);
 
             Display(teamPlayers);
+            teamPlayers.Sort();
+           
 
             Console.WriteLine("\n what player would you like to add scores too?");
             int PlayerNum = int.Parse(Console.ReadLine());
@@ -44,6 +46,9 @@ namespace Q1
                 PlayerNum = int.Parse(Console.ReadLine());
 
             }
+            DisplayPlayerDetails(teamPlayers);
+            Console.WriteLine("the highest score is {0}", Player.higheScore);
+
 
         }
 
@@ -57,6 +62,14 @@ namespace Q1
            }
 
             
+        }
+        private static void DisplayPlayerDetails(List<Player> players)
+        {
+            Console.WriteLine($"{"ID"}\t{"Name"}\t{"Score"}");
+            foreach(Player player in players)
+            {
+                Console.Write("{0}\n",player);
+            }
         }
     }
 }
